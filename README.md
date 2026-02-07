@@ -102,15 +102,48 @@ npm run build
 | **Amplification, not replacement** | We enhance human capabilities |
 | **Fair compensation** | Direct and transparent payment to operators |
 
-### 🎬 Promotional Video
+### ⚡ Available Skills
 
-A 60-second promotional video was created using [Remotion](https://remotion.dev/). The video project is available in `/humanloop-video/`.
+HumanLoop includes real-world skills that connect AI orchestration with human operators:
+
+| Skill | Command | Description |
+|-------|---------|-------------|
+| **Business Consultant** | `/business-consultant` | Connect with a software engineer for in-person consulting sessions |
+| **IoT Security Installer** | `/iot-security-installer` | Professional security camera and smart home installation |
+
+#### Example: Business Consulting
+```
+/business-consultant
+Topic: Explain microservices architecture to investors
+Location: Las Condes, Santiago
+Duration: 2 hours
+```
+
+#### Example: IoT Installation
+```
+/iot-security-installer
+Service: 4 IP cameras + NVR system
+Location: Providencia
+Property: Residential house
+```
+
+### 🎬 Promotional Videos
+
+Multiple promotional videos created using [Remotion](https://remotion.dev/):
+
+| Video | Description | Duration |
+|-------|-------------|----------|
+| `HumanLoopEN` | English version | 60s |
+| `HumanLoopES` | Spanish version with skills showcase | 60s |
+| `SkillsShowcase` | Deep dive into available skills | 80s |
 
 ```bash
 cd humanloop-video
 npm install
-npm run studio  # Preview in browser
-npm run render  # Render to MP4
+npm run studio                    # Preview in browser
+npx remotion render HumanLoopEN   # Render English version
+npx remotion render HumanLoopES   # Render Spanish version
+npx remotion render SkillsShowcase # Render skills showcase
 ```
 
 ---
@@ -197,15 +230,48 @@ npm run build
 | **Amplificación, no reemplazo** | Potenciamos capacidades humanas |
 | **Compensación justa** | Pago directo y transparente al operador |
 
-### 🎬 Video Promocional
+### ⚡ Skills Disponibles
 
-Se creó un video promocional de 60 segundos usando [Remotion](https://remotion.dev/). El proyecto del video está disponible en `/humanloop-video/`.
+HumanLoop incluye skills del mundo real que conectan la orquestación de IA con operadores humanos:
+
+| Skill | Comando | Descripción |
+|-------|---------|-------------|
+| **Consultor de Negocios** | `/business-consultant` | Conecta con un ingeniero de software para consultoría presencial |
+| **Instalador IoT/Seguridad** | `/iot-security-installer` | Instalación profesional de cámaras y dispositivos smart home |
+
+#### Ejemplo: Consultoría de Negocios
+```
+/business-consultant
+Tema: Explicar arquitectura de microservicios a inversores
+Ubicación: Las Condes, Santiago
+Duración: 2 horas
+```
+
+#### Ejemplo: Instalación IoT
+```
+/iot-security-installer
+Servicio: 4 cámaras IP + sistema NVR
+Ubicación: Providencia
+Propiedad: Casa residencial
+```
+
+### 🎬 Videos Promocionales
+
+Múltiples videos promocionales creados con [Remotion](https://remotion.dev/):
+
+| Video | Descripción | Duración |
+|-------|-------------|----------|
+| `HumanLoopEN` | Versión en inglés | 60s |
+| `HumanLoopES` | Versión en español con showcase de skills | 60s |
+| `SkillsShowcase` | Deep dive en los skills disponibles | 80s |
 
 ```bash
 cd humanloop-video
 npm install
-npm run studio  # Vista previa en navegador
-npm run render  # Renderizar a MP4
+npm run studio                    # Vista previa en navegador
+npx remotion render HumanLoopEN   # Renderizar versión inglés
+npx remotion render HumanLoopES   # Renderizar versión español
+npx remotion render SkillsShowcase # Renderizar showcase de skills
 ```
 
 ---
@@ -219,18 +285,32 @@ humanloop/
 │   │   ├── layout.tsx      # Root layout
 │   │   ├── page.tsx        # Home page
 │   │   └── globals.css     # Global styles + Tailwind v4 theme
-│   └── components/
-│       ├── Navbar.tsx      # Navigation
-│       ├── Hero.tsx        # Hero section
-│       ├── HowItWorks.tsx  # HITL flow explanation
-│       ├── Services.tsx    # Skills/capabilities
-│       ├── Scenarios.tsx   # Use case examples
-│       ├── MCPSection.tsx  # Technical architecture
-│       ├── EthicsFramework.tsx  # Ethical principles
-│       ├── Pricing.tsx     # Compensation model
-│       ├── ConceptBanner.tsx    # POC explanation
-│       └── Footer.tsx      # Footer
+│   ├── components/
+│   │   ├── Navbar.tsx      # Navigation + Language switcher
+│   │   ├── Hero.tsx        # Hero section
+│   │   ├── HowItWorks.tsx  # HITL flow explanation
+│   │   ├── Services.tsx    # Skills/capabilities
+│   │   ├── Scenarios.tsx   # Use case examples
+│   │   ├── MCPSection.tsx  # Technical architecture
+│   │   ├── EthicsFramework.tsx  # Ethical principles
+│   │   ├── Pricing.tsx     # Compensation model
+│   │   ├── ConceptBanner.tsx    # POC explanation
+│   │   └── Footer.tsx      # Footer
+│   ├── content/
+│   │   ├── en.ts           # English translations
+│   │   └── es.ts           # Spanish translations
+│   └── context/
+│       └── LanguageContext.tsx  # i18n provider
+├── skills/
+│   ├── business-consultant/
+│   │   └── SKILL.md        # Business consulting skill
+│   └── iot-security-installer/
+│       └── SKILL.md        # IoT installation skill
 ├── humanloop-video/        # Remotion video project
+│   └── src/
+│       ├── HumanLoopVideoEN.tsx  # English video
+│       ├── HumanLoopVideoES.tsx  # Spanish video
+│       └── SkillsShowcase.tsx    # Skills deep dive
 ├── package.json
 ├── vercel.json             # Vercel configuration
 └── README.md
