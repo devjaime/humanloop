@@ -5,6 +5,7 @@ import HowItWorks from "@/components/HowItWorks";
 import MCPSection from "@/components/MCPSection";
 import Scenarios from "@/components/Scenarios";
 import PilotSkills from "@/components/PilotSkills";
+import VideoShowcase from "@/components/VideoShowcase";
 import TechArchitecture from "@/components/TechArchitecture";
 import EthicsFramework from "@/components/EthicsFramework";
 import Pricing from "@/components/Pricing";
@@ -19,6 +20,7 @@ export default function Home() {
       <HowItWorks />
       <Services />
       <PilotSkills />
+      <VideoShowcase />
       <Scenarios />
       <MCPSection />
       <TechArchitecture />
