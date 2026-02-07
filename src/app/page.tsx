@@ -4,6 +4,8 @@ import Services from "@/components/Services";
 import HowItWorks from "@/components/HowItWorks";
 import MCPSection from "@/components/MCPSection";
 import Scenarios from "@/components/Scenarios";
+import PilotSkills from "@/components/PilotSkills";
+import TechArchitecture from "@/components/TechArchitecture";
 import EthicsFramework from "@/components/EthicsFramework";
 import Pricing from "@/components/Pricing";
 import ConceptBanner from "@/components/ConceptBanner";
@@ -16,8 +18,10 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <Services />
+      <PilotSkills />
       <Scenarios />
       <MCPSection />
+      <TechArchitecture />
       <EthicsFramework />
       <Pricing />
       <ConceptBanner />

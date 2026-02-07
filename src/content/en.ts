@@ -404,4 +404,120 @@ export const content = {
     },
     disclaimer: "HumanLoop.cl is a proof of concept of Human-in-the-Loop architecture. The platform demonstrates how AI agents can orchestrate tasks while human operators maintain autonomy, judgment and responsibility over execution. AI amplifies human work, doesn't replace it.",
   },
+
+  // Pilot Skills
+  pilotSkills: {
+    badge: "PILOT SKILLS - LIVE NOW",
+    title1: "Real Skills,",
+    titleHighlight: "Real Services",
+    subtitle: "These skills are available now. Connect AI orchestration with human operators for physical services in Santiago, Chile.",
+    compensation: "Operator Compensation:",
+    ctaText: "Join as an operator or integrate these skills into your AI agent.",
+    ctaOperator: "Join as Operator",
+    ctaIntegrate: "Integrate into my AI",
+    skills: [
+      {
+        title: "Business Consulting",
+        description: "Connect with a professional software engineer for in-person consulting sessions. Technical translation, architecture consulting, project scoping, and risk assessment.",
+        features: ["Technical Translation", "Architecture Consulting", "Project Scoping", "Due Diligence"],
+        example: {
+          input: "/business-consultant Explain microservices to investors",
+          output: "✅ Software Engineer assigned. Session confirmed: Tomorrow 10:00, Las Condes. Deliverables: Technical one-pager + architecture diagram.",
+        },
+      },
+      {
+        title: "IoT & Security Installation",
+        description: "Professional installation of security cameras, smart home devices, and IoT sensors. Certified technicians with SEC authorization for electrical work.",
+        features: ["IP Cameras", "NVR/DVR Setup", "Smart Locks", "IoT Sensors"],
+        example: {
+          input: "/iot-security-installer 4 cameras + NVR in Providencia",
+          output: "✅ IoT Technician available. Visit scheduled: Friday 14:00. Quote: $180,000 CLP (4 IP cameras + 2TB NVR + installation).",
+        },
+      },
+    ],
+  },
+
+  // Tech Architecture
+  techArch: {
+    badge: "OPERATOR PLATFORM",
+    title1: "Web or Mobile?",
+    titleHighlight: "Technical Analysis",
+    subtitle: "Choosing the right platform for operators: PWA vs Native App with real-time WebSocket communication.",
+    tabs: {
+      comparison: "Comparison",
+      pwa: "PWA Details",
+      websocket: "WebSocket Demo",
+    },
+    pwa: {
+      recommended: "RECOMMENDED",
+      techStack: "Tech Stack",
+      title: "Progressive Web App for Operators",
+      pros: [
+        "Single codebase for web + mobile",
+        "No app store approval needed",
+        "Instant updates without user action",
+        "Works offline with cached data",
+        "Push notifications supported",
+        "Lower development cost",
+        "Easy onboarding via URL",
+      ],
+      features: [
+        {
+          icon: "📶",
+          title: "Offline First",
+          description: "Service workers cache tasks and sync when connection returns.",
+        },
+        {
+          icon: "🔔",
+          title: "Push Notifications",
+          description: "Real-time alerts for new tasks, status updates, and messages.",
+        },
+        {
+          icon: "📍",
+          title: "GPS Tracking",
+          description: "Background location for route optimization and ETA updates.",
+        },
+      ],
+    },
+    native: {
+      alternative: "ALTERNATIVE",
+      techStack: "Tech Stack",
+      cons: [
+        "Separate iOS and Android codebases",
+        "App store review delays (1-7 days)",
+        "Users must update manually",
+        "Higher development cost",
+        "Complex deployment pipeline",
+      ],
+    },
+    websocket: {
+      title: "Real-Time Communication",
+      features: [
+        {
+          icon: "⚡",
+          title: "Instant Updates",
+          description: "Bidirectional communication for task assignments and status changes.",
+        },
+        {
+          icon: "📍",
+          title: "Live Tracking",
+          description: "Real-time operator location for clients and dispatchers.",
+        },
+        {
+          icon: "💬",
+          title: "In-App Chat",
+          description: "Direct messaging between operators, clients, and AI agents.",
+        },
+        {
+          icon: "🔄",
+          title: "Auto Reconnect",
+          description: "Automatic reconnection with message queue for offline periods.",
+        },
+      ],
+    },
+    recommendation: {
+      title: "Our Recommendation",
+      description: "PWA with WebSocket provides the best balance of functionality, cost, and operator experience. Easy onboarding, instant updates, and real-time communication without app store friction.",
+    },
+  },
 };
