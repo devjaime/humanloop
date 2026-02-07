@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/10">
@@ -22,15 +24,41 @@ export default function Navbar() {
           </a>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#como-funciona" className="text-sm text-text-secondary hover:text-secondary transition-colors">Como Funciona</a>
-            <a href="#skills" className="text-sm text-text-secondary hover:text-secondary transition-colors">Skills</a>
-            <a href="#arquitectura" className="text-sm text-text-secondary hover:text-secondary transition-colors">Arquitectura</a>
-            <a href="#etica" className="text-sm text-text-secondary hover:text-secondary transition-colors">Marco Etico</a>
+            <a href="#how-it-works" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.howItWorks}</a>
+            <a href="#skills" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.skills}</a>
+            <a href="#architecture" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.architecture}</a>
+            <a href="#ethics" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.ethics}</a>
+
+            {/* Language Switcher */}
+            <div className="flex items-center gap-1 text-xs font-mono">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-2 py-1 rounded transition-all ${
+                  language === "en"
+                    ? "text-white bg-secondary/20"
+                    : "text-text-muted hover:text-text-secondary"
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-text-muted/30">|</span>
+              <button
+                onClick={() => setLanguage("es")}
+                className={`px-2 py-1 rounded transition-all ${
+                  language === "es"
+                    ? "text-white bg-secondary/20"
+                    : "text-text-muted hover:text-text-secondary"
+                }`}
+              >
+                ES
+              </button>
+            </div>
+
             <a href="#" className="text-sm font-medium px-4 py-2 rounded-lg bg-secondary/10 text-secondary border border-secondary/20 hover:bg-secondary/20 transition-all">
-              Soy Operador
+              {t.nav.ctaOperator}
             </a>
             <a href="#" className="text-sm font-medium px-4 py-2 rounded-lg bg-gradient-to-r from-secondary to-electric text-white hover:shadow-lg hover:shadow-secondary/20 transition-all">
-              Integrar mi IA
+              {t.nav.ctaIntegrate}
             </a>
           </div>
 
@@ -47,13 +75,36 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-secondary/10 mt-2 pt-4 space-y-3">
-            <a href="#como-funciona" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">Como Funciona</a>
-            <a href="#skills" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">Skills</a>
-            <a href="#arquitectura" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">Arquitectura</a>
-            <a href="#etica" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">Marco Etico</a>
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center gap-2 px-2 pb-2 border-b border-secondary/10">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`text-xs font-mono px-3 py-1.5 rounded transition-all ${
+                  language === "en"
+                    ? "text-white bg-secondary/20"
+                    : "text-text-muted hover:text-text-secondary"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage("es")}
+                className={`text-xs font-mono px-3 py-1.5 rounded transition-all ${
+                  language === "es"
+                    ? "text-white bg-secondary/20"
+                    : "text-text-muted hover:text-text-secondary"
+                }`}
+              >
+                ES
+              </button>
+            </div>
+            <a href="#how-it-works" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.howItWorks}</a>
+            <a href="#skills" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.skills}</a>
+            <a href="#architecture" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.architecture}</a>
+            <a href="#ethics" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.ethics}</a>
             <div className="flex gap-2 pt-2">
-              <a href="#" className="text-sm font-medium px-4 py-2 rounded-lg bg-secondary/10 text-secondary border border-secondary/20">Soy Operador</a>
-              <a href="#" className="text-sm font-medium px-4 py-2 rounded-lg bg-gradient-to-r from-secondary to-electric text-white">Integrar mi IA</a>
+              <a href="#" className="text-sm font-medium px-4 py-2 rounded-lg bg-secondary/10 text-secondary border border-secondary/20">{t.nav.ctaOperator}</a>
+              <a href="#" className="text-sm font-medium px-4 py-2 rounded-lg bg-gradient-to-r from-secondary to-electric text-white">{t.nav.ctaIntegrate}</a>
             </div>
           </div>
         )}

@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const codeExamples = {
-  mcp: `// Orquestacion via MCP - HumanLoop SDK
-// Agente conecta con la capa de coordinacion
-
+  mcp: `// Orchestration via MCP - HumanLoop SDK
 import { HumanLoopClient } from "@humanloop/sdk";
 
 const client = new HumanLoopClient({
@@ -13,11 +12,10 @@ const client = new HumanLoopClient({
   region: "cl-santiago"
 });
 
-// El agente detecta una tarea y la enruta
 const task = await client.orchestrate({
   skill: "logistics.delivery",
   context: {
-    description: "4 entregas en Providencia",
+    description: "4 deliveries in Providencia",
     optimized_route: ["Lyon", "Los Leones",
       "Pedro de Valdivia", "Tobalaba"],
     priority: "normal"
@@ -29,17 +27,14 @@ const task = await client.orchestrate({
   }
 });
 
-// Respuesta del orquestador
+// Response
 // {
 //   task_id: "tsk_cl_2025_abc123",
 //   status: "operator_assigned",
 //   operator: { name: "Carlos M.", rating: 4.9 },
-//   eta: "25 minutos",
 //   human_decision: "accepted"
 // }`,
-  rest: `# REST API - Capa de Orquestacion
-# El agente enruta tareas al sistema
-
+  rest: `# REST API - Orchestration Layer
 POST /api/v1/orchestrate HTTP/1.1
 Host: api.humanloop.cl
 Authorization: Bearer hl_sk_live_...
@@ -48,24 +43,20 @@ Content-Type: application/json
 {
   "skill": "legal.document_signing",
   "context": {
-    "document_type": "poder_notarial",
+    "document_type": "notarial_power",
     "prepared_by": "LegalAgent",
     "validated": true
   },
   "hitl": {
     "requires_human": true,
-    "reason": "firma_legal_presencial",
+    "reason": "physical_legal_signature",
     "operator_requirements": [
-      "Abogado colegiado",
-      "Experiencia en poderes notariales"
+      "Licensed lawyer",
+      "Notarial experience"
     ],
     "location": {
       "address": "Monjitas 527, Santiago",
       "comuna": "Santiago Centro"
-    },
-    "schedule": {
-      "date": "2025-03-15",
-      "time_range": "10:00-12:00"
     }
   }
 }
@@ -76,35 +67,29 @@ Content-Type: application/json
   "status": "routing_to_operator",
   "hitl_reason": "human_judgment_required"
 }`,
-  webhook: `// Webhooks - Feedback loop en tiempo real
-// El sistema aprende de cada ejecucion humana
-
+  webhook: `// Webhooks - Real-time feedback loop
 await client.webhooks.create({
-  url: "https://tu-agente.cl/webhook",
+  url: "https://your-agent.cl/webhook",
   events: [
     "task.operator_assigned",
-    "task.operator_accepted",
-    "task.in_progress",
     "task.completed",
-    "task.evidence_submitted",
     "feedback.operator_report"
   ]
 });
 
-// Evento recibido por el agente:
+// Event received by agent:
 {
   "event": "task.completed",
   "task_id": "tsk_cl_2025_def456",
   "data": {
     "operator": "Carolina M.",
-    "execution_time": "45 minutos",
+    "execution_time": "45 minutes",
     "evidence": [
-      "documento_firmado.jpg",
-      "timbre_notarial.jpg"
+      "signed_document.jpg",
+      "notary_stamp.jpg"
     ],
-    "operator_notes": "Documento firmado
-      exitosamente. Notario verifico identidad.",
-    "human_decision": "Aprobo sin cambios",
+    "operator_notes": "Document signed
+      successfully.",
     "compensation": {
       "amount": 48000,
       "currency": "CLP",
@@ -119,6 +104,7 @@ await client.webhooks.create({
 };
 
 export default function MCPSection() {
+  const { language, t } = useLanguage();
   const [activeTab, setActiveTab] = useState<"mcp" | "rest" | "webhook">("mcp");
 
   const tabs = [
@@ -128,48 +114,25 @@ export default function MCPSection() {
   ];
 
   return (
-    <section id="arquitectura" className="py-24 relative">
+    <section id="architecture" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <span className="inline-block px-3 py-1 rounded-full bg-surface-card border border-electric/20 text-xs font-mono text-electric-light mb-4">
-              ARQUITECTURA TECNICA
+              {t.mcp.badge}
             </span>
             <h2 className="text-3xl sm:text-4xl font-black mb-4">
-              <span className="text-text-primary">Cuatro capas. </span>
+              <span className="text-text-primary">{t.mcp.title1} </span>
               <span className="bg-gradient-to-r from-electric to-secondary bg-clip-text text-transparent">
-                Un sistema.
+                {t.mcp.titleHighlight}
               </span>
             </h2>
             <p className="text-text-secondary text-lg mb-8 leading-relaxed">
-              HumanLoop se estructura en capas: orquestacion de tareas por IA,
-              red de agentes conectados via MCP, sistema de Skills reutilizables,
-              y la capa de ejecucion humana (HITL).
+              {t.mcp.subtitle}
             </p>
 
             <div className="space-y-4">
-              {[
-                {
-                  title: "Capa 1: Orquestacion de Tareas",
-                  desc: "Motor central que recibe eventos, prioriza y distribuye tareas entre agentes y operadores.",
-                },
-                {
-                  title: "Capa 2: Red de Agentes (MCP)",
-                  desc: "Agentes modulares conectados via Model Context Protocol. Cada agente tiene un dominio especializado.",
-                },
-                {
-                  title: "Capa 3: Skills Reutilizables",
-                  desc: "Capacidades cognitivas compartidas: optimizacion de rutas, analisis de documentos, diagnostico, planificacion.",
-                },
-                {
-                  title: "Capa 4: Ejecucion Humana (HITL)",
-                  desc: "Operadores verificados que ejecutan con autonomia. El humano mantiene criterio, responsabilidad y decision.",
-                },
-                {
-                  title: "Feedback Loop",
-                  desc: "Cada ejecucion humana alimenta al sistema. La IA mejora su coordinacion basada en resultados reales.",
-                },
-              ].map((feature, i) => (
+              {t.mcp.layers.map((layer, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-surface-card/50 border border-secondary/5 hover:border-secondary/20 transition-all">
                   <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5 shrink-0">
                     <svg className="w-3.5 h-3.5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -177,8 +140,8 @@ export default function MCPSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-text-primary">{feature.title}</h4>
-                    <p className="text-xs text-text-muted mt-0.5">{feature.desc}</p>
+                    <h4 className="text-sm font-bold text-text-primary">{layer.name}: {layer.description}</h4>
+                    <p className="text-xs text-text-muted mt-0.5">{layer.detail}</p>
                   </div>
                 </div>
               ))}

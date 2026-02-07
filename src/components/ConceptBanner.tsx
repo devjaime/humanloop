@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ConceptBanner() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -31,28 +33,25 @@ export default function ConceptBanner() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 leading-tight">
-              <span className="text-text-primary">Esto es un </span>
+              <span className="text-text-primary">{t.concept.title1} </span>
               <span className="bg-gradient-to-r from-secondary via-electric to-success bg-clip-text text-transparent animate-gradient">
-                proof of concept
+                {t.concept.titleHighlight}
               </span>
             </h2>
 
             <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed mb-6">
-              HumanLoop.cl es un{" "}
+              {t.concept.subtitle.part1}{" "}
               <span className="text-electric-light font-semibold">
-                experimento de arquitectura HITL
+                {t.concept.subtitle.highlight}
               </span>{" "}
-              que explora como los agentes de IA pueden colaborar con humanos
-              mediante orquestacion inteligente, sin reemplazar el trabajo humano.
+              {t.concept.subtitle.part2}
             </p>
 
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-electric/10 border border-electric/20 text-electric-light font-medium hover:bg-electric/20 transition-all"
             >
-              {isExpanded
-                ? "Ocultar vision"
-                : "Leer la vision completa"}
+              {isExpanded ? t.concept.hideVision : t.concept.readVision}
               <svg
                 className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-180" : ""}`}
                 fill="none"
@@ -79,33 +78,7 @@ export default function ConceptBanner() {
               <div className="h-px bg-gradient-to-r from-transparent via-electric/30 to-transparent" />
 
               {/* Vision points */}
-              {[
-                {
-                  title: "Amplificacion, no automatizacion",
-                  text: "Las IAs pueden procesar datos, generar contenido y coordinar tareas. Pero las acciones fisicas, el juicio profesional y la presencia humana son insustituibles. HumanLoop amplifica las capacidades humanas con IA, no las reemplaza.",
-                  icon: "🚀",
-                },
-                {
-                  title: "Human-in-the-Loop como arquitectura",
-                  text: "HITL no es una limitacion: es un principio de diseno. Los operadores humanos no son simples ejecutores de instrucciones de IA. Son profesionales con criterio que validan, corrigen y mejoran las sugerencias del sistema.",
-                  icon: "🔄",
-                },
-                {
-                  title: "MCP como capa de orquestacion",
-                  text: "El Model Context Protocol permite que agentes de IA coordinen tareas complejas. En HumanLoop, la IA orquesta y planifica. El humano decide y ejecuta. La colaboracion es bidireccional: el feedback humano mejora la IA.",
-                  icon: "🌉",
-                },
-                {
-                  title: "Skills compartidos, criterio humano",
-                  text: "Los Skills son capacidades cognitivas reutilizables: optimizacion de rutas, analisis de documentos, diagnostico. Pero el operador humano aporta el contexto local, la experiencia en terreno y el juicio que ningun algoritmo puede replicar.",
-                  icon: "🧠",
-                },
-                {
-                  title: "Chile como punto de partida",
-                  text: "Este concepto esta contextualizado en Chile: con comunas reales, precios en CLP, y servicios locales. Porque la colaboracion IA-humano debe pensarse desde contextos reales, no solo desde Silicon Valley.",
-                  icon: "🇨🇱",
-                },
-              ].map((point, i) => (
+              {t.concept.visionPoints.map((point, i) => (
                 <div
                   key={i}
                   className="flex items-start gap-4 p-6 rounded-xl bg-surface/50 border border-secondary/5 hover:border-secondary/15 transition-all"
@@ -125,12 +98,12 @@ export default function ConceptBanner() {
               {/* Final note */}
               <div className="text-center p-6 bg-gradient-to-r from-success/5 via-electric/5 to-secondary/5 rounded-xl border border-success/10">
                 <p className="text-sm text-text-muted font-mono leading-relaxed">
-                  Este es un proof of concept de arquitectura HITL.
+                  {t.concept.finalNote.line1}
                   <br />
-                  Los operadores mantienen autonomia y criterio profesional.
+                  {t.concept.finalNote.line2}
                   <br />
                   <span className="text-success">
-                    La IA amplifica. El humano decide.
+                    {t.concept.finalNote.line3}
                   </span>
                 </p>
               </div>

@@ -1,83 +1,9 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function Pricing() {
-  const categories = [
-    {
-      category: "Operadores Basicos",
-      icon: "🚴",
-      description: "Tareas de ejecucion fisica y logistica",
-      services: [
-        {
-          name: "Operador Delivery",
-          price: "5.000 - 15.000",
-          unit: "por entrega",
-        },
-        {
-          name: "Operador de Gestion",
-          price: "15.000 - 25.000",
-          unit: "por hora",
-        },
-        {
-          name: "Operador de Compras",
-          price: "8.000 - 12.000",
-          unit: "por gestion",
-        },
-        {
-          name: "Operador de Tramites",
-          price: "12.000 - 20.000",
-          unit: "por tramite",
-        },
-      ],
-    },
-    {
-      category: "Operadores Certificados",
-      icon: "🔧",
-      description: "Profesionales con certificaciones verificadas",
-      services: [
-        { name: "Gasfiter SEC", price: "20.000 - 45.000", unit: "por visita" },
-        {
-          name: "Electricista SEC",
-          price: "18.000 - 50.000",
-          unit: "por visita",
-        },
-        {
-          name: "Fotografo Profesional",
-          price: "22.000 - 60.000",
-          unit: "por hora",
-        },
-        {
-          name: "Interprete Bilingue",
-          price: "30.000 - 70.000",
-          unit: "por hora",
-        },
-      ],
-    },
-    {
-      category: "Operadores Expertos",
-      icon: "⚖️",
-      description: "Profesionales con criterio especializado",
-      services: [
-        {
-          name: "Presentador Corporativo",
-          price: "25.000 - 80.000",
-          unit: "por hora",
-        },
-        {
-          name: "Abogado Colegiado",
-          price: "45.000 - 120.000",
-          unit: "por gestion",
-        },
-        {
-          name: "Representante Ejecutivo",
-          price: "35.000 - 90.000",
-          unit: "por reunion",
-        },
-        {
-          name: "Equipo Multidisciplinario",
-          price: "150.000+",
-          unit: "por proyecto",
-        },
-      ],
-    },
-  ];
+  const { t } = useLanguage();
 
   return (
     <section id="compensacion" className="py-24 relative bg-primary/30">
@@ -85,23 +11,22 @@ export default function Pricing() {
         {/* Section header */}
         <div className="text-center mb-16">
           <span className="inline-block px-3 py-1 rounded-full bg-surface-card border border-gold/20 text-xs font-mono text-gold mb-4">
-            MODELO DE COMPENSACION
+            {t.pricing.badge}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
-            <span className="text-text-primary">Compensacion justa </span>
+            <span className="text-text-primary">{t.pricing.title1} </span>
             <span className="bg-gradient-to-r from-gold to-accent bg-clip-text text-transparent">
-              por trabajo real
+              {t.pricing.titleHighlight}
             </span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto text-lg">
-            Los operadores reciben compensacion directa por su trabajo, experiencia
-            y criterio profesional. Pago transparente y proporcional al valor aportado.
+            {t.pricing.subtitle}
           </p>
         </div>
 
         {/* Pricing grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {categories.map((cat, index) => (
+          {t.pricing.categories.map((cat, index) => (
             <div
               key={index}
               className="bg-surface-card border border-secondary/10 rounded-2xl overflow-hidden hover:border-secondary/30 transition-all duration-500 group"
@@ -159,20 +84,13 @@ export default function Pricing() {
             </div>
             <div>
               <h4 className="text-lg font-bold text-text-primary mb-2">
-                Pago directo al operador
+                {t.pricing.payment.title}
               </h4>
               <p className="text-sm text-text-secondary leading-relaxed mb-4">
-                La plataforma garantiza que el 85% del pago va directamente al
-                operador que ejecuta la tarea. El 15% cubre operacion, seguros y
-                soporte. El operador mantiene autonomia sobre como ejecutar el trabajo.
+                {t.pricing.payment.description}
               </p>
               <div className="flex flex-wrap gap-3">
-                {[
-                  "Transferencia bancaria",
-                  "Mercado Pago",
-                  "Cuenta RUT",
-                  "Pago inmediato",
-                ].map((method, i) => (
+                {t.pricing.payment.methods.map((method, i) => (
                   <span
                     key={i}
                     className="text-xs font-mono px-3 py-1 rounded-full bg-success/5 border border-success/10 text-success"
@@ -188,9 +106,7 @@ export default function Pricing() {
         {/* Transparency note */}
         <div className="mt-12 text-center">
           <p className="text-sm text-text-muted max-w-2xl mx-auto">
-            Los rangos de compensacion reflejan la experiencia, certificaciones y
-            complejidad de cada tarea. El operador tiene derecho a negociar segun
-            las condiciones especificas de cada asignacion.
+            {t.pricing.note}
           </p>
         </div>
       </div>

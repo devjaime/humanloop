@@ -1,4 +1,10 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-primary border-t border-secondary/10 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,8 +25,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm text-text-muted leading-relaxed mb-4">
-              Plataforma de orquestacion HITL que conecta agentes de IA
-              con operadores humanos para tareas del mundo fisico.
+              {t.footer.brand.description}
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/5 border border-secondary/10">
               <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
@@ -33,19 +38,10 @@ export default function Footer() {
           {/* Skills */}
           <div>
             <h4 className="text-xs font-mono text-secondary mb-4 tracking-wider">
-              SKILLS DISPONIBLES
+              {t.footer.skills.title}
             </h4>
             <ul className="space-y-2">
-              {[
-                "Comunicacion & Presencia",
-                "Gestion Legal & Documental",
-                "Logistica & Entregas",
-                "Diagnostico & Gasfiteria",
-                "Planificacion & Electricidad",
-                "Gestion Presencial",
-                "Traduccion & Mediacion",
-                "Contenido Visual",
-              ].map((skill, i) => (
+              {t.footer.skills.items.map((skill, i) => (
                 <li key={i}>
                   <a
                     href="#skills"
@@ -58,22 +54,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Para desarrolladores */}
+          {/* For Developers */}
           <div>
             <h4 className="text-xs font-mono text-secondary mb-4 tracking-wider">
-              PARA DESARROLLADORES
+              {t.footer.developers.title}
             </h4>
             <ul className="space-y-2">
-              {[
-                "Documentacion MCP",
-                "API REST v1",
-                "SDK TypeScript",
-                "SDK Python",
-                "Webhooks & Eventos",
-                "Sandbox de pruebas",
-                "Status de API",
-                "Changelog",
-              ].map((item, i) => (
+              {t.footer.developers.items.map((item, i) => (
                 <li key={i}>
                   <a
                     href="#arquitectura"
@@ -86,22 +73,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Sobre el proyecto */}
+          {/* About the project */}
           <div>
             <h4 className="text-xs font-mono text-secondary mb-4 tracking-wider">
-              SOBRE EL PROYECTO
+              {t.footer.about.title}
             </h4>
             <ul className="space-y-2">
-              {[
-                "Marco Etico",
-                "Arquitectura HITL",
-                "Model Context Protocol",
-                "Colaboracion IA + Humanos",
-                "Para Operadores",
-                "Para Agentes IA",
-                "Contacto",
-                "GitHub",
-              ].map((item, i) => (
+              {t.footer.about.items.map((item, i) => (
                 <li key={i}>
                   <a
                     href="#etica"
@@ -124,17 +102,17 @@ export default function Footer() {
               </p>
               <span className="text-text-muted/30">|</span>
               <p className="text-xs text-text-muted">
-                Orquestacion HITL para agentes de IA
+                {t.footer.bottom.tagline}
               </p>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-xs text-text-muted font-mono">
-                Hecho con{" "}
-                <span className="text-success">colaboracion</span> en Chile
+                {t.footer.bottom.madeWith}{" "}
+                <span className="text-success">{t.footer.bottom.collaboration}</span> {t.footer.bottom.inChile}
               </span>
               <span className="text-text-muted/30">|</span>
               <span className="text-xs text-text-muted font-mono">
-                <span className="text-secondary">IA + Humanos</span>
+                <span className="text-secondary">IA + {t.footer.bottom.humans}</span>
               </span>
             </div>
           </div>
@@ -142,10 +120,7 @@ export default function Footer() {
           {/* Final disclaimer */}
           <div className="mt-8 text-center">
             <p className="text-[10px] font-mono text-text-muted/50 max-w-2xl mx-auto leading-relaxed">
-              HumanLoop.cl es un proof of concept de arquitectura Human-in-the-Loop.
-              La plataforma demuestra como agentes de IA pueden orquestar tareas
-              mientras operadores humanos mantienen autonomia, criterio y responsabilidad
-              sobre la ejecucion. La IA amplifica el trabajo humano, no lo reemplaza.
+              {t.footer.disclaimer}
             </p>
           </div>
         </div>
