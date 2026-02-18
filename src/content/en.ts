@@ -305,6 +305,50 @@ export const content = {
     note: "Compensation ranges reflect experience, certifications and task complexity. Operators have the right to negotiate based on specific assignment conditions.",
   },
 
+  // Pilot Payment
+  pilotPayment: {
+    badge: "PILOT PROGRAM",
+    title1: "Join the",
+    titleHighlight: "Pilot",
+    subtitle: "Be among the first to experience HumanLoop. Your feedback shapes the future of human-AI collaboration.",
+    programTitle: "Early Access Pilot",
+    programDescription: "Join our pilot program and get exclusive Human access to theLoop platform. Help us build the future of HITL orchestration while securing preferential rates.",
+    features: [
+      "Priority access to all skills",
+      "Reserved operator capacity",
+      "Direct line with development team",
+      "Influencer pricing locked forever",
+      "Co-creation of new features",
+    ],
+    selectAmount: "Select your contribution:",
+    pilotFee: "Pilot Access - Locked Rate",
+    tip: "Support the Project",
+    tipDescription: "Any amount helps us grow",
+    transparencyTitle: "Transparent Pricing",
+    transparencyDescription: "All payments go through secure PayPal. 85% of service fees fund operator compensation. No hidden fees, no surprises.",
+    alternativeTitle: "Other Payment Methods",
+    alternativeMethods: ["Mercado Pago", "Bank Transfer", "Crypto", "Wire Transfer"],
+    alternativeNote: "Contact us for wire transfers or crypto payments. USDT, BTC, ETH accepted.",
+    trustBadges: [
+      { icon: "🔒", text: "Secure PayPal payments" },
+      { icon: "📋", text: "Receipts for all payments" },
+      { icon: "💬", text: "Direct support channel" },
+    ],
+  },
+
+  // WebMCP Services
+  webMCP: {
+    badge: "WEBMCP INTEGRATION",
+    title1: "Real Services",
+    titleHighlight: "via WebMCP",
+    subtitle: "Connect your AI agents to real-world services through WebMCP. Certified professionals, real-time scheduling, and transparent pricing.",
+    integrationTitle: "How WebMCP Integration Works",
+    integrate: "Integrate",
+    ctaText: "Ready to connect your AI to real services?",
+    ctaIntegrate: "Start Integration",
+    viewDocs: "View MCP Docs",
+  },
+
   // Concept Banner
   concept: {
     badge: "PROOF OF CONCEPT",
