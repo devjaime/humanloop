@@ -1,113 +1,194 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
+import { useState } from "react";
+import { Check, Star, Zap, Shield, Users, TrendingUp } from "lucide-react";
+
+const plans = [
+  {
+    name: "starter",
+    price: 0,
+    period: "free",
+    icon: "🌱",
+    title: "Starter",
+    description: "Perfecto para probar la plataforma",
+    features: [
+      "3 MCP skills básicos",
+      "10 interacciones/mes",
+      "Soporte por email",
+      "Documentación básica"
+    ],
+    cta: "Comenzar Gratis",
+    popular: false,
+  },
+  {
+    name: "pro",
+    price: 29,
+    period: "USD/mo",
+    icon: "🚀",
+    title: "Professional",
+    description: "Para profesionales independientes",
+    features: [
+      "Todos los MCP skills",
+      "100 interacciones/mes",
+      "Soporte prioritario",
+      "API access",
+      "Personalización de workflows",
+      "Analytics básico"
+    ],
+    cta: "Empezar Trial de 7 días",
+    popular: true,
+  },
+  {
+    name: "enterprise",
+    price: 99,
+    period: "USD/mo",
+    icon: "⚡",
+    title: "Enterprise",
+    description: "Para equipos y empresas",
+    features: [
+      "Todo lo de Pro",
+      "Interacciones ilimitadas",
+      "Soporte 24/7 dedicado",
+      "Multi-usuario",
+      "Integraciones personalizadas",
+      "SLA garantizado",
+      "Training incluido"
+    ],
+    cta: "Contact Sales",
+    popular: false,
+  },
+];
 
 export default function Pricing() {
-  const { t } = useLanguage();
+  const [annual, setAnnual] = useState(false);
 
   return (
-    <section id="compensacion" className="py-24 relative bg-primary/30">
+    <section id="pricing" className="py-24 relative bg-surface-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
+        {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 rounded-full bg-surface-card border border-gold/20 text-xs font-mono text-gold mb-4">
-            {t.pricing.badge}
+          <span className="inline-block px-4 py-1.5 rounded-full bg-electric/20 border border-electric/30 text-electric text-sm font-mono mb-4">
+            PRICING
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
-            <span className="text-text-primary">{t.pricing.title1} </span>
-            <span className="bg-gradient-to-r from-gold to-accent bg-clip-text text-transparent">
-              {t.pricing.titleHighlight}
+          <h2 className="text-3xl sm:text-4xl font-black mb-4">
+            <span className="text-text-primary">Planes </span>
+            <span className="bg-gradient-to-r from-electric to-accent bg-clip-text text-transparent">
+              Flexibles
             </span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto text-lg">
-            {t.pricing.subtitle}
+            Escoge el plan que mejor se adapte a tus necesidades. 
+            Cambia cuando quieras.
           </p>
         </div>
 
-        {/* Pricing grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {t.pricing.categories.map((cat, index) => (
-            <div
-              key={index}
-              className="bg-surface-card border border-secondary/10 rounded-2xl overflow-hidden hover:border-secondary/30 transition-all duration-500 group"
+        {/* Toggle */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-surface-card border border-border rounded-full p-1 flex">
+            <button
+              onClick={() => setAnnual(false)}
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                !annual 
+                  ? 'bg-electric text-white' 
+                  : 'text-text-secondary hover:text-text-primary'
+              }`}
             >
-              <div className="p-6 border-b border-secondary/10 bg-gradient-to-r from-surface-card to-primary/50">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-3xl">{cat.icon}</span>
-                  <h3 className="text-lg font-bold text-text-primary">
-                    {cat.category}
-                  </h3>
+              Mensual
+            </button>
+            <button
+              onClick={() => setAnnual(true)}
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                annual 
+                  ? 'bg-electric text-white' 
+                  : 'text-text-secondary hover:text-text-primary'
+              }`}
+            >
+              Anual <span className="text-xs ml-1 opacity-70">-20%</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Pricing Cards */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {plans.map((plan, index) => (
+            <div
+              key={plan.name}
+              className={`relative bg-surface-card border rounded-3xl p-8 ${
+                plan.popular 
+                  ? 'border-electric shadow-lg shadow-electric/10 scale-105 z-10' 
+                  : 'border-border'
+              }`}
+            >
+              {plan.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="bg-electric text-white text-sm font-bold px-4 py-1 rounded-full">
+                    MÁS POPULAR
+                  </span>
                 </div>
-                <p className="text-xs text-text-muted">{cat.description}</p>
+              )}
+
+              <div className="text-center mb-6">
+                <div className="text-4xl mb-3">{plan.icon}</div>
+                <h3 className="text-xl font-bold text-text-primary">{plan.title}</h3>
+                <p className="text-text-secondary text-sm mt-1">{plan.description}</p>
               </div>
-              <div className="p-6 space-y-4">
-                {cat.services.map((service, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between py-2 border-b border-secondary/5 last:border-0"
-                  >
-                    <span className="text-sm text-text-secondary">
-                      {service.name}
-                    </span>
-                    <div className="text-right">
-                      <span className="text-sm font-bold font-mono text-secondary">
-                        ${service.price}
-                      </span>
-                      <span className="text-xs text-text-muted block">
-                        {service.unit}
-                      </span>
+
+              <div className="text-center mb-6">
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-4xl font-black text-text-primary">
+                    ${annual && plan.price > 0 ? Math.round(plan.price * 0.8) : plan.price}
+                  </span>
+                  {plan.price > 0 && (
+                    <span className="text-text-secondary">/{plan.period}</span>
+                  )}
+                </div>
+                {annual && plan.price > 0 && (
+                  <p className="text-sm text-electric mt-1">Ahorras 20% anual</p>
+                )}
+              </div>
+
+              <ul className="space-y-3 mb-8">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-electric/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check size={12} className="text-electric" />
                     </div>
-                  </div>
+                    <span className="text-text-secondary text-sm">{feature}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
+
+              <button
+                className={`w-full py-3 px-6 rounded-xl font-semibold transition-all ${
+                  plan.popular
+                    ? 'bg-electric text-white hover:bg-electric-light'
+                    : 'bg-surface-light text-text-primary hover:bg-border'
+                }`}
+              >
+                {plan.cta}
+              </button>
             </div>
           ))}
         </div>
 
-        {/* Payment info */}
-        <div className="bg-surface-card border border-success/20 rounded-2xl p-8 max-w-3xl mx-auto">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center shrink-0">
-              <svg
-                className="w-6 h-6 text-success"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-                />
-              </svg>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold text-text-primary mb-2">
-                {t.pricing.payment.title}
-              </h4>
-              <p className="text-sm text-text-secondary leading-relaxed mb-4">
-                {t.pricing.payment.description}
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {t.pricing.payment.methods.map((method, i) => (
-                  <span
-                    key={i}
-                    className="text-xs font-mono px-3 py-1 rounded-full bg-success/5 border border-success/10 text-success"
-                  >
-                    {method}
-                  </span>
-                ))}
-              </div>
-            </div>
+        {/* Trust badges */}
+        <div className="mt-16 flex flex-wrap justify-center gap-8 text-text-secondary">
+          <div className="flex items-center gap-2">
+            <Shield size={18} />
+            <span className="text-sm">Pagos seguros</span>
           </div>
-        </div>
-
-        {/* Transparency note */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-text-muted max-w-2xl mx-auto">
-            {t.pricing.note}
-          </p>
+          <div className="flex items-center gap-2">
+            <Zap size={18} />
+            <span className="text-sm">Cancelar cuando quieras</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Users size={18} />
+            <span className="text-sm">500+ operators activos</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Star size={18} />
+            <span className="text-sm">4.9/5 rating</span>
+          </div>
         </div>
       </div>
     </section>
