@@ -12,6 +12,7 @@ import EthicsFramework from "@/components/EthicsFramework";
 import Pricing from "@/components/Pricing";
 import PilotPayment from "@/components/PilotPayment";
 import Partners from "@/components/Partners";
+import RevenueModel from "@/components/RevenueModel";
 import ConceptBanner from "@/components/ConceptBanner";
 import Footer from "@/components/Footer";
 
@@ -29,6 +30,7 @@ export default function Home() {
       <MCPSection />
       <TechArchitecture />
       <EthicsFramework />
+      <RevenueModel />
       <Pricing />
       <Partners />
       <PilotPayment />
