@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Check, Star, Zap, Shield, Users, TrendingUp } from "lucide-react";
+import { useState } from 'react';
+import { Check, Star, Zap, Shield, Users, TrendingUp, Loader, Gift } from "lucide-react";
 
 const plans = [
   {
@@ -61,6 +61,22 @@ const plans = [
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
+  const [showWaitlist, setShowWaitlist] = useState(false);
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setLoading(true);
+    // Simular guardado
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setSubmitted(true);
+    setLoading(false);
+  };
 
   return (
     <section id="pricing" className="py-24 relative bg-surface-light">
@@ -159,6 +175,13 @@ export default function Pricing() {
               </ul>
 
               <button
+                onClick={() => {
+                  if (plan.price === 0) {
+                    setShowWaitlist(true);
+                  } else {
+                    setShowWaitlist(true);
+                  }
+                }}
                 className={`w-full py-3 px-6 rounded-xl font-semibold transition-all ${
                   plan.popular
                     ? 'bg-electric text-white hover:bg-electric-light'
@@ -170,6 +193,84 @@ export default function Pricing() {
             </div>
           ))}
         </div>
+
+        {/* Waitlist Modal */}
+        {showWaitlist && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+            <div className="relative w-full max-w-md">
+              <button
+                onClick={() => setShowWaitlist(false)}
+                className="absolute -top-4 -right-4 z-10 w-10 h-10 bg-gray-800 hover:bg-gray-700 text-white rounded-full flex items-center justify-center"
+              >
+                ✕
+              </button>
+              
+              {submitted ? (
+                <div className="bg-white rounded-2xl p-8 text-center">
+                  <div className="text-5xl mb-4">✅</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    ¡Te has unido!
+                  </h3>
+                  <p className="text-gray-600">
+                    Te avisaremos cuando lancemos. Gracias por tu interés en HumanLoop.
+                  </p>
+                </div>
+              ) : (
+                <div className="bg-white rounded-2xl p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <Gift className="text-purple-600" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900">Únete a la Waitlist</h3>
+                      <p className="text-sm text-gray-500">Sé de los primeros en acceder</p>
+                    </div>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Tu nombre
+                      </label>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Juan"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Tu email
+                      </label>
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="tu@email.com"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none"
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                    >
+                      {loading ? (
+                        <Loader size={20} className="animate-spin" />
+                      ) : (
+                        '🚀 Unirse a la Waitlist'
+                      )}
+                    </button>
+                  </form>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Trust badges */}
         <div className="mt-16 flex flex-wrap justify-center gap-8 text-text-secondary">
