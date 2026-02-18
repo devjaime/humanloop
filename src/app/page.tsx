@@ -11,6 +11,7 @@ import TechArchitecture from "@/components/TechArchitecture";
 import EthicsFramework from "@/components/EthicsFramework";
 import Pricing from "@/components/Pricing";
 import PilotPayment from "@/components/PilotPayment";
+import Partners from "@/components/Partners";
 import ConceptBanner from "@/components/ConceptBanner";
 import Footer from "@/components/Footer";
 
@@ -29,6 +30,7 @@ export default function Home() {
       <TechArchitecture />
       <EthicsFramework />
       <Pricing />
+      <Partners />
       <PilotPayment />
       <ConceptBanner />
       <Footer />
