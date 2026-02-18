@@ -55,8 +55,47 @@ export default function WebMCPServices() {
         "Legalización de trámite",
         "Copia certificada digital",
       ],
-      mcpTools: ["legal.sign", "legal.verify_identity", "legal.notarize", "legal. certify_copy"],
+      mcpTools: ["legal.sign", "legal.verify_identity", "legal.notarize", "legal.certify_copy"],
       price: "$45.000 - $120.000 CLP",
+    },
+    {
+      icon: "🏠",
+      title: "Limpieza Doméstica",
+      description: "Servicios de limpieza profesional para hogares y oficinas. Productos incluidos.",
+      features: [
+        "Limpieza general profunda",
+        "Limpieza post-arriendo",
+        "Servicios por hora o contrato",
+        "Productos ecológicos disponibles",
+      ],
+      mcpTools: ["cleaning.home", "cleaning.deep", "cleaning.contract", "cleaning.eco"],
+      price: "$15.000 - $35.000 CLP",
+    },
+    {
+      icon: "🎨",
+      title: "Pintura & Decoración",
+      description: "Pintores profesionales para interior y exterior. Cotización por m2.",
+      features: [
+        "Pintura interior/exterior",
+        "Preparación de superficies",
+        "Asesoría de colores",
+        "Garantía de trabajo",
+      ],
+      mcpTools: ["paint.interior", "paint.exterior", "paint.quote", "paint.colors"],
+      price: "$25.000 - $80.000 CLP",
+    },
+    {
+      icon: "🌿",
+      title: "Jardinería & Paisajismo",
+      description: "Mantenimiento de jardines y diseño paisajístico. seasonal care y más.",
+      features: [
+        "Corte de pasto",
+        "Poda de árboles",
+        "Diseño de jardines",
+        "Riego automatizado",
+      ],
+      mcpTools: ["garden.mow", "garden.prune", "garden.design", "garden.irrigation"],
+      price: "$20.000 - $60.000 CLP",
     },
   ];
 
