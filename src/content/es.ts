@@ -305,6 +305,50 @@ export const content = {
     note: "Los rangos de compensación reflejan la experiencia, certificaciones y complejidad de cada tarea. El operador tiene derecho a negociar según las condiciones específicas de cada asignación.",
   },
 
+  // Pilot Payment
+  pilotPayment: {
+    badge: "PROGRAMA PILOTO",
+    title1: "Únete al",
+    titleHighlight: "Piloto",
+    subtitle: "Sé de los primeros en experimentar HumanLoop. Tu feedback da forma al futuro de la colaboración humano-IA.",
+    programTitle: "Acceso Early Access",
+    programDescription: "Únete a nuestro programa piloto y obtén acceso exclusivo a la plataforma HumanLoop. Ayúdanos a construir el futuro de la orquestación HITL mientras aseguras tarifas preferentes.",
+    features: [
+      "Acceso prioritario a todos los skills",
+      "Capacidad de operador reservada",
+      "Línea directa con el equipo de desarrollo",
+      "Precios preferenciales bloqueados para siempre",
+      "Co-creación de nuevas funcionalidades",
+    ],
+    selectAmount: "Selecciona tu contribución:",
+    pilotFee: "Acceso Piloto - Tarifa Bloqueada",
+    tip: "Apoyar el Proyecto",
+    tipDescription: " Cualquier monto nos ayuda a crecer",
+    transparencyTitle: "Precios Transparentes",
+    transparencyDescription: "Todos los pagos van through PayPal seguro. El 85% de las tarifas de servicio financian la compensación de operadores. Sin costos ocultos, sin sorpresas.",
+    alternativeTitle: "Otros Métodos de Pago",
+    alternativeMethods: ["Mercado Pago", "Transferencia Bancaria", "Crypto", "Transferencia Internacional"],
+    alternativeNote: "Contáctanos para transferencias internacionales o pagos crypto. Aceptamos USDT, BTC, ETH.",
+    trustBadges: [
+      { icon: "🔒", text: "Pagos seguros PayPal" },
+      { icon: "📋", text: "Recibos para todos los pagos" },
+      { icon: "💬", text: "Canal de soporte directo" },
+    ],
+  },
+
+  // WebMCP Services
+  webMCP: {
+    badge: "INTEGRACIÓN WEBMCP",
+    title1: "Servicios Reales",
+    titleHighlight: "vía WebMCP",
+    subtitle: "Conecta tus agentes de IA con servicios del mundo real a través de WebMCP. Profesionales certificados, scheduling en tiempo real y precios transparentes.",
+    integrationTitle: "Cómo Funciona la Integración WebMCP",
+    integrate: "Integrar",
+    ctaText: "¿Listo para conectar tu IA a servicios reales?",
+    ctaIntegrate: "Iniciar Integración",
+    viewDocs: "Ver Documentación MCP",
+  },
+
   // Concept Banner
   concept: {
     badge: "PROOF OF CONCEPT",
