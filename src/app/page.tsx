@@ -34,6 +34,19 @@ export default function Home() {
       <Pricing />
       <Partners />
       <PilotPayment />
+      
+      {/* Disclaimer honesto */}
+      <div className="bg-amber-900/20 border-t border-amber-500/30 py-8">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <p className="text-amber-200 text-sm">
+            <strong>📋 Estado del proyecto:</strong> HumanLoop está en desarrollo. 
+            Los servicios MCP (gasfitería, electricidad, etc.) son una visión de lo que queremos construir. 
+            Hoy puedes unirte a la waitlist para ser de los primeros en acceder cuando lancemos. 
+            ¿Te interesa ser operator? <a href="mailto:contacto@humanloop.cl" className="underline">Contáctanos</a>
+          </p>
+        </div>
+      </div>
+
       <ConceptBanner />
       <Footer />
     </main>
