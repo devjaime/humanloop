@@ -51,7 +51,7 @@ Traditional task coordination relies on:
 │    TaskAgent │ RoutingAgent │ ValidationAgent │ FeedbackAgent│
 ├─────────────────────────────────────────────────────────────┤
 │                    SKILLS                                    │
-│   DeliverySkill │ LegalSkill │ DiagnosticSkill │ EventSkill  │
+│   DeliverySkill │ LegalSkill │ CleaningServiceSkill │ EventSkill  │
 ├─────────────────────────────────────────────────────────────┤
 │                    HUMAN OPERATORS                           │
 │     Autonomous execution + Professional judgment + Feedback  │

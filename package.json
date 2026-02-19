@@ -7,7 +7,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "remotion": "remotion",
+    "remotion:preview": "remotion preview demos/airbnb-cleaning/src/index.tsx",
+    "remotion:render": "remotion render demos/airbnb-cleaning/src/index.tsx"
   },
   "dependencies": {
     "lucide-react": "^0.574.0",
@@ -16,13 +19,16 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@remotion/cli": "4.0.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "postcss": "^8.5.0",
+    "remotion": "4.0.0",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "zod": "^3.22.3"
   },
   "engines": {
     "node": ">=18.17.0"

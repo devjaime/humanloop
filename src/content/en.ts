@@ -171,6 +171,14 @@ export const content = {
         skill: "DiagnosticSkill",
         feedback: "Diagnostic pattern recorded. Predictive alert updated.",
       },
+      {
+        agent: "AirbnbCleaningAgent",
+        action: "Checkout detected at property SR-CZ-57. License plate detected leaving. Cleaning service hired. Notifying team...",
+        operator: "CleaningTeamOperator",
+        response: "Received. Team on the way. 20min ETA to property. Starting deep cleaning.",
+        skill: "CleaningServiceSkill",
+        feedback: "Cleaning completed. Property ready for next guest. Photos attached.",
+      },
     ],
     legend: {
       agent: "AI Agent",

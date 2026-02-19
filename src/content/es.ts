@@ -171,6 +171,14 @@ export const content = {
         skill: "DiagnosticSkill",
         feedback: "Patrón de diagnóstico registrado. Alerta predictiva actualizada.",
       },
+      {
+        agent: "AirbnbCleaningAgent",
+        action: "Checkout detectado en房源 SR-CZ-57. Chapa detectada saliendo. Servicio de limpieza contratado. Notificando al equipo...",
+        operator: "CleaningTeamOperator",
+        response: "Recibido. Equipo en camino. ETA 20min al domicilio. Iniciando limpieza profunda.",
+        skill: "CleaningServiceSkill",
+        feedback: "Limpieza completada. Propiedad lista para next guest. Photos attached.",
+      },
     ],
     legend: {
       agent: "Agente IA",
