@@ -109,6 +109,8 @@ HumanLoop includes real-world skills that connect AI orchestration with human op
 | Skill | Command | Description |
 |-------|---------|-------------|
 | **Business Consultant** | `/business-consultant` | Connect with a software engineer for in-person consulting sessions |
+| **Cleaning Service** | `/cleaning-service` | Professional home and office cleaning with AI scheduling |
+| **Gasfiter Service** | `/gasfiter-service` | Certified plumbing and gas installation in Chile (SEC) |
 | **IoT Security Installer** | `/iot-security-installer` | Professional security camera and smart home installation |
 
 #### Example: Business Consulting
@@ -119,6 +121,15 @@ Location: Las Condes, Santiago
 Duration: 2 hours
 ```
 
+#### Example: Gasfiter Service
+```
+/gasfiter-service
+Type: reparación
+Problem: Fuga de agua en cocina
+Location: Las Condes, Santiago
+Urgency: urgente
+```
+
 #### Example: IoT Installation
 ```
 /iot-security-installer
@@ -127,23 +138,21 @@ Location: Providencia
 Property: Residential house
 ```
 
-### 🎬 Promotional Videos
+### 🎬 Demo Projects & Promotional Videos
 
 Multiple promotional videos created using [Remotion](https://remotion.dev/):
 
-| Video | Description | Duration |
-|-------|-------------|----------|
-| `HumanLoopEN` | English version | 60s |
-| `HumanLoopES` | Spanish version with skills showcase | 60s |
-| `SkillsShowcase` | Deep dive into available skills | 80s |
+| Demo | Description |
+|------|-------------|
+| `airbnb-cleaning` | Airbnb property cleaning automation demo |
+| `vocari-videos` | Vocational platform promotional videos |
 
 ```bash
-cd humanloop-video
-npm install
-npm run studio                    # Preview in browser
-npx remotion render HumanLoopEN   # Render English version
-npx remotion render HumanLoopES   # Render Spanish version
-npx remotion render SkillsShowcase # Render skills showcase
+# Preview demos
+npm run remotion:preview
+
+# Render specific demo
+npm run remotion:render -- --props '{"video":"Video1Colegios"}'
 ```
 
 ---
@@ -237,6 +246,8 @@ HumanLoop incluye skills del mundo real que conectan la orquestación de IA con 
 | Skill | Comando | Descripción |
 |-------|---------|-------------|
 | **Consultor de Negocios** | `/business-consultant` | Conecta con un ingeniero de software para consultoría presencial |
+| **Servicio de Limpieza** | `/cleaning-service` | Limpieza profesional de hogares y oficinas con IA |
+| **Servicio de Gasfitería** | `/gasfiter-service` | Plomería y gas certificada en Chile (SEC) |
 | **Instalador IoT/Seguridad** | `/iot-security-installer` | Instalación profesional de cámaras y dispositivos smart home |
 
 #### Ejemplo: Consultoría de Negocios
@@ -247,6 +258,15 @@ Ubicación: Las Condes, Santiago
 Duración: 2 horas
 ```
 
+#### Ejemplo: Servicio de Gasfitería
+```
+/gasfiter-service
+Tipo: reparación
+Problema: Fuga de agua en cocina
+Ubicación: Las Condes, Santiago
+Urgencia: urgente
+```
+
 #### Ejemplo: Instalación IoT
 ```
 /iot-security-installer
@@ -255,23 +275,21 @@ Ubicación: Providencia
 Propiedad: Casa residencial
 ```
 
-### 🎬 Videos Promocionales
+### 🎬 Proyectos Demo y Videos Promocionales
 
 Múltiples videos promocionales creados con [Remotion](https://remotion.dev/):
 
-| Video | Descripción | Duración |
-|-------|-------------|----------|
-| `HumanLoopEN` | Versión en inglés | 60s |
-| `HumanLoopES` | Versión en español con showcase de skills | 60s |
-| `SkillsShowcase` | Deep dive en los skills disponibles | 80s |
+| Demo | Descripción |
+|------|-------------|
+| `airbnb-cleaning` | Demo de automatización de limpieza para propiedades Airbnb |
+| `vocari-videos` | Videos promocionales para plataforma vocacional |
 
 ```bash
-cd humanloop-video
-npm install
-npm run studio                    # Vista previa en navegador
-npx remotion render HumanLoopEN   # Renderizar versión inglés
-npx remotion render HumanLoopES   # Renderizar versión español
-npx remotion render SkillsShowcase # Renderizar showcase de skills
+# Vista previa de demos
+npm run remotion:preview
+
+# Renderizar demo específico
+npm run remotion:render -- --props '{"video":"Video1Colegios"}'
 ```
 
 ---
@@ -284,6 +302,7 @@ humanloop/
 │   ├── app/
 │   │   ├── layout.tsx      # Root layout
 │   │   ├── page.tsx        # Home page
+│   │   ├── blog/           # Blog section
 │   │   └── globals.css     # Global styles + Tailwind v4 theme
 │   ├── components/
 │   │   ├── Navbar.tsx      # Navigation + Language switcher
@@ -304,15 +323,19 @@ humanloop/
 ├── skills/
 │   ├── business-consultant/
 │   │   └── SKILL.md        # Business consulting skill
+│   ├── cleaning-service/
+│   │   └── SKILL.md        # Cleaning service skill
+│   ├── gasfiter-service/
+│   │   └── SKILL.md        # Plumbing/gas service skill
 │   └── iot-security-installer/
 │       └── SKILL.md        # IoT installation skill
-├── humanloop-video/        # Remotion video project
-│   └── src/
-│       ├── HumanLoopVideoEN.tsx  # English video
-│       ├── HumanLoopVideoES.tsx  # Spanish video
-│       └── SkillsShowcase.tsx    # Skills deep dive
+├── demos/
+│   ├── airbnb-cleaning/    # Airbnb cleaning automation demo
+│   └── vocari-videos/      # Vocari.cl promotional videos
+├── out/                    # Rendered video output
 ├── package.json
 ├── vercel.json             # Vercel configuration
+├── render-videos.sh        # Video rendering script
 └── README.md
 ```
 

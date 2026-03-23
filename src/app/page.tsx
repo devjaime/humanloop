@@ -13,6 +13,7 @@ import Pricing from "@/components/Pricing";
 import PilotPayment from "@/components/PilotPayment";
 import Partners from "@/components/Partners";
 import RevenueModel from "@/components/RevenueModel";
+import MaritimeSection from "@/components/MaritimeSection";
 import ConceptBanner from "@/components/ConceptBanner";
 import Footer from "@/components/Footer";
 
@@ -34,6 +35,7 @@ export default function Home() {
       <Pricing />
       <Partners />
       <PilotPayment />
+      <MaritimeSection />
       
       {/* Disclaimer honesto */}
       <div className="bg-amber-900/20 border-t border-amber-500/30 py-8">
