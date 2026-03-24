@@ -3,6 +3,13 @@ import Link from "next/link";
 export default function BlogIndex() {
   const posts = [
     {
+      slug: "maritime-ai",
+      title: "Humanloop Maritime: AI-Powered Marine Technical Services",
+      description: "Técnicos navieros certificados cuando los necesitas. Radar, GMDSS, AIS, GPS - cuando los barcos necesitan expertos, los conectamos.",
+      date: "March 23, 2026",
+      lang: "en",
+    },
+    {
       slug: "plumbing-ai-chile",
       title: "AI + Human Plumbers: A New Model for Home Services in Chile",
       description: "Exploring how HumanLoop combines AI agents with certified plumbers to deliver reliable services.",
