@@ -10,7 +10,9 @@
     "lint": "next lint",
     "remotion": "remotion",
     "remotion:preview": "remotion preview demos/vocari-videos/src/index.tsx",
-    "remotion:render": "remotion render demos/vocari-videos/src/index.tsx"
+    "remotion:render": "remotion render demos/vocari-videos/src/index.tsx",
+    "remotion:preview:maritime": "remotion preview demos/maritime-video/src/index.tsx",
+    "remotion:render:maritime": "remotion render demos/maritime-video/src/index.tsx"
   },
   "dependencies": {
     "lucide-react": "^0.574.0",
