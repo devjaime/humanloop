@@ -39,6 +39,11 @@ echo "Rendering Video 5: Asistencia con IA..."
 "$REMOTION_BIN" render demos/vocari-videos/src/index.tsx Video4AsistenciaIA --out out/videos/ --concurrency=1 --port=3105
 echo "Video 5 done"
 
+# Video 6: Humanloop Game
+echo "Rendering Video 6: Humanloop Game Demo..."
+"$REMOTION_BIN" render demos/humanloop-game/src/index.tsx HumanloopGame --out out/videos/ --concurrency=1 --port=3106
+echo "Video 6 done"
+
 echo "========================================="
 echo "All videos rendered"
 echo "Files are in: out/videos/"
