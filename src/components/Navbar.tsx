@@ -27,6 +27,8 @@ export default function Navbar() {
             <a href="#how-it-works" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.howItWorks}</a>
             <a href="#skills" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.skills}</a>
             <a href="#tools" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.tools}</a>
+            <a href="#pudu-demo" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.demo}</a>
+            <a href="/mcp" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.mcp}</a>
             <a href="#architecture" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.architecture}</a>
             <a href="#ethics" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.ethics}</a>
 
@@ -102,6 +104,8 @@ export default function Navbar() {
             <a href="#how-it-works" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.howItWorks}</a>
             <a href="#skills" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.skills}</a>
             <a href="#tools" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.tools}</a>
+            <a href="#pudu-demo" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.demo}</a>
+            <a href="/mcp" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.mcp}</a>
             <a href="#architecture" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.architecture}</a>
             <a href="#ethics" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.ethics}</a>
             <div className="flex gap-2 pt-2">

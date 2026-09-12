@@ -60,10 +60,20 @@ export default function Footer() {
               {t.footer.developers.title}
             </h4>
             <ul className="space-y-2">
+              <li>
+                <a href="/mcp" className="text-sm text-text-muted hover:text-secondary transition-colors">
+                  {t.puduDemo.mcpCta}
+                </a>
+              </li>
+              <li>
+                <a href="#pudu-demo" className="text-sm text-text-muted hover:text-secondary transition-colors">
+                  {t.nav.demo}
+                </a>
+              </li>
               {t.footer.developers.items.map((item, i) => (
                 <li key={i}>
                   <a
-                    href="#arquitectura"
+                    href="#architecture"
                     className="text-sm text-text-muted hover:text-secondary transition-colors"
                   >
                     {item}

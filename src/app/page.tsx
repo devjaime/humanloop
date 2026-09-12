@@ -15,6 +15,8 @@ import Partners from "@/components/Partners";
 import RevenueModel from "@/components/RevenueModel";
 import MaritimeSection from "@/components/MaritimeSection";
 import Tools from "@/components/Tools";
+import PuduDemo from "@/components/PuduDemo";
+import MCPCatalog from "@/components/MCPCatalog";
 import StatusBanner from "@/components/StatusBanner";
 import ConceptBanner from "@/components/ConceptBanner";
 import Footer from "@/components/Footer";
@@ -26,6 +28,8 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <Tools />
+      <PuduDemo />
+      <MCPCatalog />
       <Services />
       <PilotSkills />
       <WebMCPServices />
