@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { content as enContent } from "@/content/en";
 import { content as esContent } from "@/content/es";
 
@@ -15,8 +15,29 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+function detectLanguage(): Language {
+  if (typeof window === "undefined") return "en";
+  const stored = window.localStorage.getItem("hl-lang");
+  if (stored === "en" || stored === "es") return stored;
+  const nav = (window.navigator.language || "en").toLowerCase();
+  return nav.startsWith("es") ? "es" : "en";
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguageState] = useState<Language>("en");
+
+  useEffect(() => {
+    setLanguageState(detectLanguage());
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    window.localStorage.setItem("hl-lang", language);
+  }, [language]);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+  };
 
   const t = language === "en" ? enContent : esContent;
 

@@ -5,99 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function WebMCPServices() {
   const { t } = useLanguage();
 
-  const services = [
-    {
-      icon: "🔧",
-      title: "Gasfitería Certified SEC",
-      description: "Conecta tu AI con gasfiteros certificados. Diagnóstico remoto, cotizaciones automáticas y scheduling inteligente.",
-      features: [
-        "Diagnóstico de filtraciones por video",
-        "Cotización automática según problemática",
-        "Scheduling con disponibilidad en tiempo real",
-        "Certificación SEC verificada",
-      ],
-      mcpTools: ["plumbing.diagnose", "plumbing.quote", "plumbing.schedule", "plumbing.verify_sec"],
-      price: "$20.000 - $45.000 CLP",
-    },
-    {
-      icon: "⚡",
-      title: "Electricidad SEC",
-      description: "Instalaciones y reparaciones eléctricas certificadas. Seguridad garantizada y cumplimiento normativo.",
-      features: [
-        "Inspecciones de seguridad eléctrica",
-        "Planificación de carga eléctrica",
-        "Certificación de instalaciones",
-        "Cotizaciones por tipo de trabajo",
-      ],
-      mcpTools: ["electric.verify_permit", "electric.inspect", "electric.plan_load", "electric.certify"],
-      price: "$18.000 - $50.000 CLP",
-    },
-    {
-      icon: "🚚",
-      title: "Logística & Entregas",
-      description: "Última milla con tracking en tiempo real. Compras presenciales y delivery optimizado.",
-      features: [
-        "Ruteo optimizado por GPS",
-        "Compras en tienda física",
-        "Chain de frío para medicamentos",
-        "Foto/video como evidencia",
-      ],
-      mcpTools: ["logistics.route", "logistics.track", "logistics.purchase", "logistics.evidency"],
-      price: "$5.000 - $15.000 CLP",
-    },
-    {
-      icon: "📋",
-      title: "Trámites Legales",
-      description: "Notarías, firmas y representación legal. Documentación certificada y procesos garantizados.",
-      features: [
-        "Firma de documentos notariales",
-        "Verificación de identidad",
-        "Legalización de trámite",
-        "Copia certificada digital",
-      ],
-      mcpTools: ["legal.sign", "legal.verify_identity", "legal.notarize", "legal.certify_copy"],
-      price: "$45.000 - $120.000 CLP",
-    },
-    {
-      icon: "🏠",
-      title: "Limpieza Doméstica",
-      description: "Servicios de limpieza profesional para hogares y oficinas. Productos incluidos.",
-      features: [
-        "Limpieza general profunda",
-        "Limpieza post-arriendo",
-        "Servicios por hora o contrato",
-        "Productos ecológicos disponibles",
-      ],
-      mcpTools: ["cleaning.home", "cleaning.deep", "cleaning.contract", "cleaning.eco"],
-      price: "$15.000 - $35.000 CLP",
-    },
-    {
-      icon: "🎨",
-      title: "Pintura & Decoración",
-      description: "Pintores profesionales para interior y exterior. Cotización por m2.",
-      features: [
-        "Pintura interior/exterior",
-        "Preparación de superficies",
-        "Asesoría de colores",
-        "Garantía de trabajo",
-      ],
-      mcpTools: ["paint.interior", "paint.exterior", "paint.quote", "paint.colors"],
-      price: "$25.000 - $80.000 CLP",
-    },
-    {
-      icon: "🌿",
-      title: "Jardinería & Paisajismo",
-      description: "Mantenimiento de jardines y diseño paisajístico. seasonal care y más.",
-      features: [
-        "Corte de pasto",
-        "Poda de árboles",
-        "Diseño de jardines",
-        "Riego automatizado",
-      ],
-      mcpTools: ["garden.mow", "garden.prune", "garden.design", "garden.irrigation"],
-      price: "$20.000 - $60.000 CLP",
-    },
-  ];
+  const services = t.webMCPServices;
 
   return (
     <section id="webmcp" className="py-24 relative bg-surface-light">
@@ -160,7 +68,7 @@ export default function WebMCPServices() {
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold to-accent flex items-center justify-center mb-2">
                 <span className="text-2xl">👷</span>
               </div>
-              <span className="text-sm text-text-secondary">Operator</span>
+              <span className="text-sm text-text-secondary">{t.webMCP.operator}</span>
             </div>
           </div>
         </div>
@@ -194,7 +102,7 @@ export default function WebMCPServices() {
               </div>
 
               <div className="border-t border-secondary/10 pt-4">
-                <p className="text-xs text-text-muted mb-2">MCP Tools:</p>
+                <p className="text-xs text-text-muted mb-2">{t.webMCP.mcpTools}:</p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {service.mcpTools.map((tool, i) => (
                     <span
