@@ -66,7 +66,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#pudu-demo" className="text-sm text-text-muted hover:text-secondary transition-colors">
+                <a href="/pudu-ai" className="text-sm text-text-muted hover:text-secondary transition-colors">
+                  {t.nav.docs}
+                </a>
+              </li>
+              <li>
+                <a href="/#pudu-demo" className="text-sm text-text-muted hover:text-secondary transition-colors">
                   {t.nav.demo}
                 </a>
               </li>

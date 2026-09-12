@@ -23,7 +23,7 @@ export default function Tools() {
           {t.tools.items.map((item) => (
             <a
               key={item.name}
-              href={item.name === "Pudu-AI" ? "#pudu-demo" : item.href}
+              href={item.name === "Pudu-AI" ? "/pudu-ai" : item.href}
               className="group relative overflow-hidden bg-surface-card border border-electric/20 rounded-3xl p-8 hover:border-secondary/50 hover:shadow-[0_0_50px_rgba(0,212,255,0.12)] transition-all"
             >
               <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-electric/10 group-hover:bg-secondary/10 transition-colors" />

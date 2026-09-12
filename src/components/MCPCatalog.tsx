@@ -42,12 +42,20 @@ export default function MCPCatalog() {
           ))}
         </div>
         <div className="text-center mt-10">
-          <a
-            href="/mcp"
-            className="inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-secondary to-electric text-white font-bold shadow-[0_0_40px_rgba(0,212,255,0.25)]"
-          >
-            {d.mcpCta} →
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="/pudu-ai"
+              className="inline-block px-8 py-4 rounded-2xl border border-secondary/40 text-secondary font-bold hover:bg-secondary/10"
+            >
+              {d.docsCta} →
+            </a>
+            <a
+              href="/mcp"
+              className="inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-secondary to-electric text-white font-bold shadow-[0_0_40px_rgba(0,212,255,0.25)]"
+            >
+              {d.mcpCta} →
+            </a>
+          </div>
         </div>
       </div>
     </section>

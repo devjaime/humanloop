@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="/" className="flex items-center gap-3 group">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-secondary to-electric flex items-center justify-center">
               <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -27,7 +27,8 @@ export default function Navbar() {
             <a href="#how-it-works" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.howItWorks}</a>
             <a href="#skills" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.skills}</a>
             <a href="#tools" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.tools}</a>
-            <a href="#pudu-demo" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.demo}</a>
+            <a href="/#pudu-demo" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.demo}</a>
+            <a href="/pudu-ai" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.docs}</a>
             <a href="/mcp" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.mcp}</a>
             <a href="#architecture" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.architecture}</a>
             <a href="#ethics" className="text-sm text-text-secondary hover:text-secondary transition-colors">{t.nav.ethics}</a>
@@ -104,7 +105,8 @@ export default function Navbar() {
             <a href="#how-it-works" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.howItWorks}</a>
             <a href="#skills" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.skills}</a>
             <a href="#tools" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.tools}</a>
-            <a href="#pudu-demo" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.demo}</a>
+            <a href="/#pudu-demo" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.demo}</a>
+            <a href="/pudu-ai" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.docs}</a>
             <a href="/mcp" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.mcp}</a>
             <a href="#architecture" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.architecture}</a>
             <a href="#ethics" className="block text-sm text-text-secondary hover:text-secondary px-2 py-1">{t.nav.ethics}</a>

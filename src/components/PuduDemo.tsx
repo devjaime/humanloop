@@ -128,7 +128,10 @@ export default function PuduDemo() {
               >
                 {d.github}
               </a>
-              <a href="/mcp" className="px-5 py-3 rounded-xl border border-secondary/30 text-secondary font-semibold hover:bg-secondary/10">
+              <a href="/pudu-ai" className="px-5 py-3 rounded-xl border border-secondary/30 text-secondary font-semibold hover:bg-secondary/10">
+                {d.docsCta}
+              </a>
+              <a href="/mcp" className="px-5 py-3 rounded-xl border border-electric/30 text-electric-light font-semibold hover:bg-electric/10">
                 {d.mcpCta}
               </a>
             </div>
